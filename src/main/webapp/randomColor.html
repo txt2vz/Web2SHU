@@ -1,0 +1,22 @@
+<!DOCTYPE html >
+
+<html>
+<head>
+    <title>color Page</title>
+    <script>
+        window.onload=BG_change
+        function BG_change()
+        {
+            document.body.style.backgroundColor ='rgb('+
+                Math.floor(Math.random() * 256) + ',' +
+                Math.floor(Math.random() * 256) + ',' +
+                Math.floor(Math.random() * 256)  + ')';
+            setTimeout("BG_change()", 400);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

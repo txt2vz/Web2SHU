@@ -1,0 +1,29 @@
+<DOCTYPE! html>
+<html>
+<head>
+
+    <script>
+        function greenText()
+        {
+            var paragraphObject = document.getElementById("shu");
+
+            paragraphObject.style.color = 'green';
+        }
+
+        function blueText()
+        {
+            var paragraphObject = document.getElementById("shu");
+
+            paragraphObject.style.color = 'blue';
+        }
+
+
+    </script>
+</head>
+
+<body>
+<h1 id="shu" style="color:blue" onmouseover="greenText()" onmouseout="blueText()">
+    Welcome to Sheffield Hallam University
+</h1>
+</body>
+</html>

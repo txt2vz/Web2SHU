@@ -1,0 +1,25 @@
+<!DOCTYPE html >
+
+<html>
+<head>
+    <title>Sum the Elements of an Array</title>
+</head>
+<body>
+</body>
+<script type = "text/javascript">
+    var theArray = [ 1, 2, 3, 4];
+    var total1 = 0, total2 = 0;
+    // iterates through the elements of the array in order and adds
+    // each element's value to total1
+    for ( var i = 0; i < theArray.length; i++ )
+        total1 += theArray[ i ];
+
+    document.writeln( "Total using subscripts: " + total1 );
+    for (var element in theArray )
+        total2 += theArray[ element ];
+
+    document.writeln( "<br />Total using for...in: " + total2 );
+</script>
+</html>
+
+

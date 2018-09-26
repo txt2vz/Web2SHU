@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SHU Astronomy</title>
+    <script>
+        function updateEarth() {
+            document.getElementById("earth").style.color = 'blue';
+            document.getElementById("earth").style.fontSize = "40px";
+            document.getElementById("earth").innerHTML = "Earth is our planet";
+        }
+
+        function returnEarh(){
+            document.getElementById("earth").style.color = 'black';
+            document.getElementById("earth").style.fontSize = "12px";
+            document.getElementById("earth").innerHTML = "Earth";
+        }
+
+        function marsInfo(){
+            var info = "Diameter: " + mars.diameter + "orbit period " + mars.orbit_period;
+            document.getElementById("info").innerHTML = info;
+        }
+
+        var mars ={
+            moons: 2,
+            diameter: 6792,
+            orbit_period: '687 days'
+        }
+
+        var jupiter = {
+            diameter: 142948,
+            lenghtOfDay: "8 hours",
+            moons: 79
+        }
+
+        function showJupiterInfo(){
+            alert("Jupiter diameter " + jupiter.diameter + " moons " + jupiter.moons)
+        }
+
+    </script>
+
+</head>
+<body>
+<h1 id="astr">SHU Astronomy</h1>
+<img src='Jupiter.jpg' id='jupiter' width='300' height='200' style='display:none'>
+
+Visible Planets
+<ol>
+    <li>Mercury</li>
+    <li>Venus</li>
+    <li id="earth" onmouseover="updateEarth()" onmouseout="returnEarh()">Earth</li>
+    <li id="mars" onmouseover="marsInfo()">Mars</li>
+    <li id="jupiter" onmouseover="showJupiterInfo()">Jupiter</li>
+    <li>Saturn</li>
+</ol>
+
+<div id="info"></div>
+
+<button type="button" onclick="document.getElementById('jupiter').style.display='block'">Click to see Jupiter</button>
+<button type ="button" onmouseover="document.getElementById('mars').style.color='red'">Mouse Over to see red Mars</button>
+<button type ="button" onmouseover="updateEarth()">Mouse Over for earth message</button>
+
+</body>
+</html>
+
+
+
+
