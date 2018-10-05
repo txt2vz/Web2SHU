@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>SHU Date</title>
+</head>
+<body>
+<h1>Simple Date</h1>
+Year:
+<span id = "date_id"></span>
+
+Full Date:
+<span id = "full_date"> </span>
+<script>
+       var d = new Date()
+       document.getElementById("date_id").innerHTML = d.getFullYear()
+       document.getElementById("full_date").innerHTML =  d
+
+</script>
+
+</body>
+</html>

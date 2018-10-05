@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>slide up and fade </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <script>
+        function slideup() {
+            $('#first').slideUp("slow");
+            $('.second').fadeTo(2000, 0.333);
+        }
+    </script>
+</head>
+<body>
+<h1>Sliding elements up</h1>
+<div>
+    <p id="first">Here is some text with id = first.</p>
+    <p class="second">This is also text but with class = second.</p>
+    <p class="second">  This is also test with class = second</p>
+</div>
+<form>
+    <input type="button" value="slide up" onClick="slideup( )" />
+</form>
+</body>
+</html>

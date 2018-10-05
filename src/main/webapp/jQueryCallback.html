@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("p").hide(4000, function(){
+                    alert("The paragraph is now hidden after the hide event which took 4000 milliseconds");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<button>Hide</button>
+
+<p>Sheffield Hallam University (SHU) is a public university in Sheffield, South Yorkshire, England.
+    It is based on two sites; the City Campus is located in the city centre near Sheffield railway station,
+    while the Collegiate Crescent Campus is about two miles away in the Broomhall Estate off Ecclesall Road in south-west Sheffield.
+    The university is the 11th largest university in the UK (out of 167)
+    with 30,815 students (of whom 4,400 are international students),[3] 4,494 staff and 708 courses.</p>
+
+</body>
+</html>

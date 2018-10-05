@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<title> JSON tests </title>
+<body>
+<h1> Testing JSON on Tintin</h1>
+
+Character:
+<p id="character"></p>
+
+<script>
+    var tintin  = {
+        "tintinBooks": {
+            "title": "Tintin in Tibet",
+            "numberOfPages": 62,
+            "seriesNumber": 20,
+            "yearPublished": "1958",
+            "majorCharacters": [
+                "Tintin",
+                "Captain Haddock",
+                "Snowy",
+                "Tharkey",
+                "Chang"
+            ]
+        }
+    }
+    var tintinJsonString =JSON.stringify(tintin);
+    console.log ("jsonString : " + tintinJsonString);
+
+    var tintinJsonObject = JSON.parse(tintinJsonString);
+    document.getElementById("character").innerHTML= tintinJsonObject.tintinBooks.majorCharacters[1];
+</script>
+
+</body>
+</html>

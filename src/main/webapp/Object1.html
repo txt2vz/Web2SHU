@@ -6,20 +6,24 @@
 
 <p>There are two different ways to access an object property.</p>
 
-<p>You can use person.property or person["property"].</p>
+<p>You can use student.property or student["property"].</p>
 
-<p id="demo"></p>
+<p id = "student_name"></p>
+<p> Student Number:  <span id="student_number"> </span> </p>
 
 <script>
     // Create an object:
-    var person = {
-        firstName: "John",
-        lastName : "Doe",
-        id       :  5566
+    var student = {
+        firstName: "Poly",
+        lastName : "Harvey",
+        student_number       :  2774433
     };
-    // Display some data from the object:
-    document.getElementById("demo").innerHTML =
-        person.firstName + " " + person.lastName;
+
+    document.getElementById("student_number").innerHTML =
+        student.student_number;
+        // Display some data from the object:
+    document.getElementById("student_name").innerHTML =
+        student.firstName + " " + student["lastName"];
 </script>
 
 </body>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <script
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+</head>
+<title>Google Book Test</title>
+
+<body>
+<p>Google Book Test</p>
+<h2 id="book_title">Title: </h2>
+by: <span id="author"></span>
+<p id="description" style="color:darkblue"></p>
+<script>
+    function getCrimeData() {
+        var tintinURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:9781405206310";
+
+        $.getJSON(tintinURL, function (jsonResult) {
+
+            $("#book_title").append(jsonResult.items[0].volumeInfo.title)
+            $("#author").append(jsonResult.items[0].volumeInfo.authors[0])
+            $("#description").append(jsonResult.items[0].volumeInfo.description)
+        });
+    }
+</script>
+<script>
+    getCrimeData();
+</script>
+</body>
+</html>
