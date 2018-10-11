@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SHU Astronomy</title>
+    <script>
+        function updateEarth() {
+            document.getElementById("earth").style.color = 'blue';
+            document.getElementById("earth").style.fontSize = "40px";
+            document.getElementById("earth").innerHTML = "Earth is our planet";
+        }
+
+        function returnEarh(){
+            document.getElementById("earth").style.color = 'black';
+            document.getElementById("earth").style.fontSize = "12px";
+            document.getElementById("earth").innerHTML = "Earth";
+        }
+
+        var mars ={
+            name: "Mars",
+            mass: 0.642,
+            moons: 2,
+            diameter: 6792,
+            lenghtOfDay: "24.7 hours",
+            magnetiField: false
+        }
+
+        var jupiter = {
+            name: "Jupiter",
+            mass: 1898,
+            moons: 79,
+            diameter: 142948,
+            lenghtOfDay: "9.9 hours",
+            magneticField: true
+        }
+
+
+        function marsInfo(){
+            var info = "Mars diameter: " + mars.diameter + " mars magnetic field: " + mars.magnetiField;
+            document.getElementById("info").innerHTML = info;
+        }
+        var planets =[jupiter,mars];
+
+        function sumMoons(){
+            var totalM=0;
+            for (var p in  planets){
+                console.log("p " + planets[p].name);
+                totalM = totalM + planets[p].moons;
+            }
+            console.log("moons " + totalM);
+            return totalM;
+        }
+
+        function showJupiterInfo(){
+            //alert("Jupiter diameter " + jupiter.diameter + " moons " + jupiter.moons)
+        }
+
+        function showMarsFromArray(){
+            console.log(" planets[1].name " + planets[1].name);
+            console.log(" planets[1].diameter " + planets[1].magnetiField);
+
+            var infoM = "Mars from array " + planets[1].name + " magentic field " + planets[1].magnetiField;
+            document.getElementById("mars_info").innerHTML = infoM;
+        }
+
+        function showPlanetsInfo(){
+            var numberOfMoons = sumMoons();
+            var infoP = "Planets total " + planets.length + " total moons " + numberOfMoons;
+            document.getElementById("planets_info").innerHTML = infoP;
+        }
+
+
+    </script>
+
+</head>
+<body>
+<h1 id="astr">SHU Astronomy</h1>
+<img src='Jupiter.jpg' id='jupiter' width='300' height='200' style='display:none'>
+
+Visible Planets
+<ol>
+    <li>Mercury</li>
+    <li>Venus</li>
+    <li id="earth" onmouseover="updateEarth()" onmouseout="returnEarh()">Earth</li>
+    <li id="mars" onmouseover="marsInfo()">Mars</li>
+    <li id="jupiter" onmouseover="showJupiterInfo()">Jupiter</li>
+    <li>Saturn</li>
+</ol>
+
+<div id = "mars_info" onmouseover="showMarsFromArray()">mars</div>
+<div id="planets_info" onmouseover="showPlanetsInfo()">planets</div>
+<div id="info"></div>
+
+<button type="button" onclick="document.getElementById('jupiter').style.display='block'">Click to see Jupiter</button>
+<button type ="button" onmouseover="document.getElementById('mars').style.color='red'">Mouse Over to see red Mars</button>
+<button type ="button" onmouseover="updateEarth()">Mouse Over for earth message</button>
+
+</body>
+</html>
+
+
+
+
