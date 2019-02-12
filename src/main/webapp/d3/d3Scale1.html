@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <script src = "https://d3js.org/d3.v4.min.js"></script>
+    <script src = "https://d3js.org/d3-scale.v1.min.js"></script>
+
+    <script>
+
+        var scale = d3.scaleLinear()
+            .domain([0, 10])
+            .range([0,1000]);
+
+        console.log ("scale(0):  " + scale(0)); // 0
+        console.log ("scale(1):  " + scale(1)); // 100
+        console.log ("scale(2):  " + scale(2)); // 200
+        console.log ("scale(10):  " + scale(10)); // 1000
+    </script>
+
+</head>
+<title>SHU Test</title>
+<h1>Test scale in d3</h1>
+<body>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D3 Tintin</title>
+</head>
+<body>
+<div class="container">
+    <h2>D3 Tintin Characters</h2>
+    <section id="chart"></section>
+</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+    var tintinJSON = [{
+        rating: 210,
+        name: 'Captain Haddock',
+        color: '#A57706'
+    }, {
+        rating: 130,
+        name: 'Tintin',
+        color: '#BD3613'
+    }, {
+        rating: 120,
+        name: 'Snowy',
+        color: '#D11C24'
+    }, {
+        rating: 280,
+        name: 'Professor Calculus',
+        color: '#C61C6F'
+    }, {
+        rating: 230,
+        name: 'Thomson',
+        color: '#595AB7'
+    }, {
+        rating: 238,
+        name: 'Thompson',
+        color: '#2176C7'
+    }];
+
+    d3.selectAll('#chart').selectAll('div').data(tintinJSON).enter().append(
+        'div').classed('item', true).text(function (d) {
+        return d.name;
+    }).style(
+        'background', function (d) {
+            return d.color;
+        }
+    ).style('color', 'white'
+    ).style('width', function (d) {
+        return d.rating + 'px';
+    })
+
+</script>
+</body>
+</html>
+

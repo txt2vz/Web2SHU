@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<script src = "https://d3js.org/d3.v4.min.js"></script>
+<script src = "https://d3js.org/d3-scale.v1.min.js"></script>
+
+
+<body>
+<h1>SHU</h1>
+<p>Test D3</p>
+<script>
+    // an array of numbersArray
+    var numbersArray = [7, 4, 10, 14];
+
+    //a json object
+    var books = [{
+        title: 'Crab with the Golden Claws',
+        sold: 10
+    }, {
+        title: 'Destination Moon',
+        sold: 20
+    }, {
+        title: 'Animal Farm',
+        sold: 40
+    }, {
+        title: 'Intelligent Machines',
+        sold: 2
+    }];
+
+    //use d3 to get the minimum value from the array of numbersArray
+    var minimumNumber = d3.min(numbersArray);
+
+    //use d3 to return an array with the minimumNumber and max values
+    var extentNumbers = d3.extent(numbersArray);
+
+    //use d3 to scale values
+    var scl = d3.scaleLinear().domain([0, 10]).range([0, 100]);
+    var scLwithExtent = d3.scaleLinear().domain(d3.extent(numbersArray)).range([0, 100]);
+
+    console.log("minimumNumber: " + minimumNumber);
+    console.log("extentNumbers: " + extentNumbers);
+    //console.log("scl: " + scl);
+    console.log("scl(8): " + scl(12));
+    console.log("scale8 with extentNumbers: " + scLwithExtent(2))
+
+    // use d3 to get the max value from an object.
+    // we use a callback function.
+    var maxSold = d3.max(books, function(d, i) {
+        console.log("d.title: " + d.title + " i " + i);
+        return d.sold
+    });
+    console.log("max sold " + maxSold);
+
+</script>
+</body>
+</html>
+
