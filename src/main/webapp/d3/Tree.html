@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src = "https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+<svg width="1200" height="800"></svg>
+<script>
+
+    // http://thomasrickard.uk/articles/d3---mindmaps-%28v4%29-13-08-2016.html
+
+    var data = {
+        "name": "Root",
+        "children": [
+            {
+                "name": "Branch 1"
+            },
+            {
+                "name": "Branch 2",
+                "children": [
+                    {
+                        "name": "Branch 2.1"
+                    },
+                    {
+                        "name": "Branch 2.2",
+                        "children": [
+                            {
+                                "name": "Branch 2.2.1"
+                            },
+                            {
+                                "name": "Branch 2.2.2"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Branch 3"
+            },
+            {
+                "name": "Branch 4",
+                "children": [
+                    {
+                        "name": "Branch 4.1"
+                    },
+                    {
+                        "name": "Branch 4.2"
+                    }
+                ]
+            },
+            {
+                "name": "Branch 5"
+            }
+        ]
+    };
+
+    // Get main SVG element and width + height attributes
+    var svg = d3.select("svg"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height"),
+        g = svg.append("g").attr("transform", "translate(0,40)"),
+        g2 = svg.append("g").attr("transform", "translate(600,40)")    ;
+
+    // Convert data for a tree layout
+    var root = d3.hierarchy(data)
+    var tree = d3.tree()
+        .size([width - 30, height - 160]);
+    tree(root);
+
+    var tree2 = d3.tree()
+        .size([width/2 - 30, height - 160]);
+
+    tree2(root);
+
+    // Create links
+    var link = g.selectAll(".link")
+        .data(root.links())
+        .enter().append("line")
+        .attr("class", "link")
+        .attr("stroke-width", "2px")
+        .attr("stroke", "#ddd")
+        .attr("x1", function (d) {
+            return d.source.x;
+        })
+        .attr("y1", function (d) {
+            return d.source.y;
+        })
+        .attr("x2", function (d) {
+            return d.target.x;
+        })
+        .attr("y2", function (d) {
+            return d.target.y;
+        });
+
+    g2.selectAll(".link")
+        .data(root.links())
+        .enter().append("line")
+        .attr("class", "link")
+        .attr("stroke-width", "2px")
+        .attr("stroke", "#ddd")
+        .attr("x1", function (d) {
+            return d.source.x;
+        })
+        .attr("y1", function (d) {
+            return d.source.y;
+        })
+        .attr("x2", function (d) {
+            return d.target.x;
+        })
+        .attr("y2", function (d) {
+            return d.target.y;
+        });
+
+    // Create nodes
+    var node = g.selectAll(".node")
+        .data(root.descendants())
+        .enter()
+        .append("g")
+        .attr("transform", function (d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        })
+
+    node.append("circle")
+        .attr("r", 2.5);
+
+    node.append("text")
+        .text(function (d) {
+            return d.data.name
+        });
+
+
+    // Create nodes
+    var node2 = g2.selectAll(".node")
+        .data(root.descendants())
+        .enter()
+        .append("g")
+        .attr("transform", function (d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        })
+
+    node2.append("circle")
+        .attr("r", 2.5);
+
+    node2.append("text")
+        .text(function (d) {
+            return d.data.name
+        });
+
+</script>
+
+</body>
+</html>
